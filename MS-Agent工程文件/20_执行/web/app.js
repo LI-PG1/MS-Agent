@@ -29,7 +29,6 @@
     btnRemoveFile: $("btnRemoveFile"), fileParseState: $("fileParseState"), resumePreview: $("resumePreview"), resumeNeedTip: $("resumeNeedTip"),
     inpJdUrl: $("inpJdUrl"), btnFetchJd: $("btnFetchJd"), inpJd: $("inpJd"),
     urlRows: $("urlRows"), btnAddUrlRow: $("btnAddUrlRow"), inpRefInfo: $("inpRefInfo"), refInfoCount: $("refInfoCount"),
-    inpContact: $("inpContact"),
     btnStart: $("btnStart"), btnFillSample: $("btnFillSample"), inputError: $("inputError"),
     cardProcess: $("cardProcess"), taskBadge: $("taskBadge"), fileList: $("fileList"),
     progFill: $("progFill"), progPct: $("progPct"),
@@ -383,6 +382,7 @@
     const inp = document.createElement("input");
     inp.type = "text";
     inp.className = "grow url-inp";
+    inp.id = "urlInp";
     inp.placeholder = "https://...（http(s):// 开头，如牛客面经帖 / 公司官网 / 技术博客）";
     // 失焦即时校验：非法 URL / 本机内网地址红框提示，避免最后提交才报错
     inp.addEventListener("blur", () => {
@@ -669,9 +669,6 @@
     // 补充参考信息：超过 20,000 字时后端会截断，此处仅在前端给出明确警告（不阻断，用户可继续）
     const refInfo = els.inpRefInfo.value.trim();
     if (refInfo) body.refInfo = refInfo;
-    // 联系方式（选填）：姓名/电话/邮箱，统一显示在生成材料的开头与结尾
-    const contact = els.inpContact.value.trim();
-    if (contact) body.contact = contact;
 
     els.btnStart.disabled = true;
     els.cardProcess.style.display = "block";
