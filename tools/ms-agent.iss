@@ -1,5 +1,5 @@
 ; MS-Agent (Interview Assistant) Vision Edition - Inno Setup 6 script
-#define MyAppName "MS-Agent（面试助手Agent）视觉版"
+#define MyAppName "面试准备助手（视觉版）"
 ; 版本号由 build-release.ps1 从 git tag 通过 /DMyAppVersion= 注入（避免写死导致
 ; 安装包名与实际代码版本脱节）；未注入时回退到下方默认值
 #ifndef MyAppVersion
@@ -7,7 +7,7 @@
 #endif
 #define MyAppPublisher "LinusLI"
 #define MyAppURL "https://github.com/LI-PG1/MS-Agent"
-#define MyAppExeName "启动面试助手Agent.bat"
+#define MyAppExeName "启动面试准备助手.bat"
 
 [Setup]
 AppId={{4569721A-53C7-4066-8177-ECCF721E8FE8}
@@ -46,7 +46,7 @@ Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{a
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "启动 MS-Agent"; Flags: postinstall nowait skipifsilent
+Filename: "{app}\{#MyAppExeName}"; Description: "启动 面试准备助手"; Flags: postinstall nowait skipifsilent
 
 ; Uninstall removes program-generated files (unpacked runtime, deps, local config).
 ; User materials under 30_产出 / 10_知识库 are kept intentionally.
